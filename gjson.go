@@ -671,6 +671,10 @@ func (t Result) Value() interface{} {
 	case False:
 		return false
 	case Number:
+		i, err := strconv.ParseInt(t.Raw, 10, 64)
+		if err != nil {
+			return i
+		}
 		return t.Num
 	case JSON:
 		r := t.arrayOrMap(0, true)
