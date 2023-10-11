@@ -672,7 +672,7 @@ func (t Result) Value() interface{} {
 		return false
 	case Number:
 		i, err := strconv.ParseInt(t.Raw, 10, 64)
-		if err != nil {
+		if err == nil {
 			return i
 		}
 		return t.Num
